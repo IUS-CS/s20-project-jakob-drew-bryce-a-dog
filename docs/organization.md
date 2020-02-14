@@ -1,5 +1,5 @@
 Project Roles:
 
-Bryce - ScrumMaster, Design, Programming
-Jakob - Documentation, Design, Programming
-Drew - Design, Programming
+Bryce - ScrumMaster, Design, Programming, Testing
+Jakob - Documentation, Design, Programming, Testing
+Drew - Design, Programming, Testing

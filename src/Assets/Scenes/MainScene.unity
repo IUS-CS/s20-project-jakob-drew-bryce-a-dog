@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -904,6 +904,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5038973309053266856, guid: 3c68a10da5566144ea41d427607ef928,
+        type: 3}
+      propertyPath: takeBackItem
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5038973309053266858, guid: 3c68a10da5566144ea41d427607ef928,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -995,7 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4ac9b571381924a8e9a410492eb9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRMode: 0
+  VRMode: 1
   VRComponents:
   - {fileID: 1736900112}
   - {fileID: 275261974}
@@ -1258,6 +1263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HideOnDeath: 0
   PhysicsOnDeath: 1
+  respawnTime: 3
 --- !u!4 &567639704
 Transform:
   m_ObjectHideFlags: 0
@@ -1459,6 +1465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HideOnDeath: 1
   PhysicsOnDeath: 0
+  respawnTime: 3
 --- !u!4 &726019715
 Transform:
   m_ObjectHideFlags: 0
@@ -1690,6 +1697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HideOnDeath: 1
   PhysicsOnDeath: 0
+  respawnTime: 3
 --- !u!4 &902321553
 Transform:
   m_ObjectHideFlags: 0
@@ -1954,6 +1962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HideOnDeath: 0
   PhysicsOnDeath: 1
+  respawnTime: 3
 --- !u!4 &1100373012
 Transform:
   m_ObjectHideFlags: 0
@@ -2110,6 +2119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HideOnDeath: 0
   PhysicsOnDeath: 1
+  respawnTime: 3
 --- !u!4 &1329421326
 Transform:
   m_ObjectHideFlags: 0
@@ -2380,6 +2390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HideOnDeath: 1
   PhysicsOnDeath: 0
+  respawnTime: 3
 --- !u!4 &1706277320
 Transform:
   m_ObjectHideFlags: 0

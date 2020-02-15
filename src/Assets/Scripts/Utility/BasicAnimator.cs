@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     /// <summary>
     /// Handles basic interpolation animations for typical transform properties.  Invoke callbacks on complete as needed.

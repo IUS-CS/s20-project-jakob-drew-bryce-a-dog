@@ -27,7 +27,7 @@ public class GunDamage : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-            BlobEnemy enemy = hit.transform.GetComponent<BlobEnemy>();
+            CapsuleEnemy enemy = hit.transform.GetComponent<CapsuleEnemy>();
             if (enemy != null)
             {
                 enemy.TakeDamageFromEvent();

@@ -29,6 +29,7 @@ public class GunDamage : MonoBehaviour
 
             CapsuleEnemy enemy = hit.transform.GetComponent<CapsuleEnemy>();
             BowStandEnemy bowStand = hit.transform.GetComponent<BowStandEnemy>();
+            TargetEnemy target = hit.transform.GetComponent<TargetEnemy>();
             
             if (enemy != null)
             {
@@ -38,6 +39,11 @@ public class GunDamage : MonoBehaviour
             if (bowStand != null)
             {
                 bowStand.TakeDamageFromEvent();
+            }
+
+            if (target != null)
+            {
+                target.TakeDamageFromEvent();
             }
 
             if (hit.rigidbody != null)

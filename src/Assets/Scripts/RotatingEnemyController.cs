@@ -14,7 +14,7 @@ public class RotatingEnemyController : MonoBehaviour
 
     void Start()
     {
-        StartRotations();
+        //StartRotations();
     }
 
     public void StartRotations()

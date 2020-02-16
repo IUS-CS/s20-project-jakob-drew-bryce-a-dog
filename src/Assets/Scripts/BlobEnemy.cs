@@ -7,6 +7,7 @@ public class BlobEnemy : MonoBehaviour
     //public variables can be set to defaults here and then changed in inspector
     public bool HideOnDeath = true;
     public bool PhysicsOnDeath;
+    public float respawnTime;
 
     private Vector3 upForceNudge;
 
@@ -33,8 +34,8 @@ public class BlobEnemy : MonoBehaviour
             // hide this gameObject's mesh when it is hit by an arrow
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
-            // turn it back on (primitive "respawn") 5 seconds later
-            StartCoroutine(DelayReenableMesh(5f));
+            // turn it back on (primitive "respawn") some time seconds later
+            StartCoroutine(DelayReenableMesh(respawnTime));
         }
         else if (PhysicsOnDeath)
         {

@@ -8,7 +8,8 @@ public class GameStateController : Singleton<GameStateController>
 {
     public GameObject BowItemPackage;
     public Hand LeftHand;
-
+    public GameObject bowStand;
+    public GameObject endpoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,6 @@ public class GameStateController : Singleton<GameStateController>
     {
         BowItemPackage.SetActive(false);
         LeftHand.HideGrabHint();
+        StartCoroutine(BasicAnimator.AnimateWorldPosition(bowStand.transform, bowStand.transform.position, endpoint.transform.position, 10f));
     }
 }

@@ -3,7 +3,7 @@
 
 using UnityEngine;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     /// <summary>
     /// Singleton behaviour class, used for components that should only have one instance.

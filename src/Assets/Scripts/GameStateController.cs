@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 using Valve.VR.InteractionSystem;
 
-public class GameStateController : MonoBehaviour
+public class GameStateController : Singleton<GameStateController>
 {
     public GameObject BowItemPackage;
     public Hand LeftHand;

@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111034598}
   - component: {fileID: 111034597}
+  - component: {fileID: 111034599}
   - component: {fileID: 111034596}
   - component: {fileID: 111034595}
   m_Layer: 0
@@ -148,7 +149,7 @@ MeshCollider:
   m_GameObject: {fileID: 111034594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -214,6 +215,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111034599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111034594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a542e05c9eaee4bbae4cd835f91106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  myRigidBody: {fileID: 0}
+  GameStateController: {fileID: 641489332}
 --- !u!4 &174257100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5038973309053266858, guid: 3c68a10da5566144ea41d427607ef928,
@@ -1124,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4ac9b571381924a8e9a410492eb9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRMode: 1
+  VRMode: 0
   VRComponents:
   - {fileID: 1736900112}
   - {fileID: 275261974}

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     public class CoroutineBroker : Singleton<CoroutineBroker>
     {

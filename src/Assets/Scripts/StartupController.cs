@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.VR;
 using UnityEngine.XR;
 using Valve.VR;
-
+//drew
 public class StartupController : MonoBehaviour
 {
     public bool VRMode;

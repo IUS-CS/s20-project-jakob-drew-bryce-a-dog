@@ -6,7 +6,7 @@ This document serves to give a high-level overview of how the game will be desig
 
 ## Game State Flow
 
-As this is an endless survival game, there is no win-state for the player to achieve. The difficulty of the game will steadily ramp up over time until it reaches a peak where only the most skilled players can continue to survive. On player death, the game restarts. 
+As this is an endless survival game, there is no win-state for the player to achieve. The difficulty of the game will steadily ramp up over time until it reaches a peak where only the most skilled players can continue to survive. When the player is defeated, the game restarts. 
 
 Difficulty is determined by the length of time the player survives, and there will be five difficulty levels: 
 
@@ -36,14 +36,21 @@ To prevent the player from "stalling" for time, the physics enemies will speed u
 
 ### Enemy Types:
 * Physics Enemies:
-  * - Box Enemies
-  * - Boss Enemies
+  * Box Enemies
+  * Boss Enemies
 * On-hit-death Enemies:
-  * - Rotating Enemies
-  * - Randomly Spawning Enemies
+  * Rotating Enemies
+  * Randomly Spawning Enemies
 
 ## Script Interactions
 
 The primary script controlling the phases and states of the game is GameStateController. TimerController communicates with GameStateController to tell it what the current difficulty should be, and GameStateController in turn communicates with RotatingEnemiesController, PhysicsEnemiesController, RandomEnemiesControlller, and BossEnemiesController to control what enemies spawn and when, and how fast the enemies should move. The arrow shot from the bow calls an OnTakeDamage() event in any collider that it hits to determine if that object needs to be destroyed and notify its controller or just have physics applied to it. Physics enemies will be destroyed when they hit the kill-box below the arena and then notify their controllers. 
 
 ![Script Interactions](/docs/ScriptInteractionsDiagram.svg)
+
+## Further Concerns
+
+Some stretch goals for this project are:
+* Adding power-ups, e.g. adding an exploding arrow to your next shot to take out groups of enemies, or making your teleport ability have a longer range
+* Adding a scoring system for players to achieve a point-based high score. Each enemy would be worth a certain amount of points once defeated, with perhaps multiplier bonuses awarded for multiple enemies being defeated quickly, or long-range shots
+* Animated enemies, polished visuals and effects, sound effects and music

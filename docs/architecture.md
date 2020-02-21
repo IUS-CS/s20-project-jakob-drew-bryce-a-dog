@@ -10,11 +10,11 @@ As this is an endless survival game, there is no win-state for the player to ach
 
 Difficulty is determined by the length of time the player survives, and there will be five difficulty levels: 
 
-Very Easy - 0 to 60 seconds
-Easy - 60 to 120 seconds
-Normal - 120 to 300 seconds
-Hard - 300 to 600 seconds
-Very Hard - >600 seconds
+* Very Easy - 0 to 60 seconds
+* Easy - 60 to 120 seconds
+* Normal - 120 to 300 seconds
+* Hard - 300 to 600 seconds
+* Very Hard - >600 seconds
 
 ![TimerController](/docs/TimerControllerDiagram.svg)
 
@@ -35,61 +35,15 @@ To prevent the player from "stalling" for time, the physics enemies will speed u
 ![Game Phase Flow](/docs/GamePhaseFlowDiagram.svg)
 
 ### Enemy Types:
-Physics Enemies:
-	- Box Enemies
-	- Boss Enemies
-On-hit-death Enemies:
-	- Rotating Enemies
-	- Randomly Spawning Enemies
+* Physics Enemies:
+  * - Box Enemies
+  * - Boss Enemies
+* On-hit-death Enemies:
+  * - Rotating Enemies
+  * - Randomly Spawning Enemies
 
 ## Script Interactions
 
 The primary script controlling the phases and states of the game is GameStateController. TimerController communicates with GameStateController to tell it what the current difficulty should be, and GameStateController in turn communicates with RotatingEnemiesController, PhysicsEnemiesController, RandomEnemiesControlller, and BossEnemiesController to control what enemies spawn and when, and how fast the enemies should move. The arrow shot from the bow calls an OnTakeDamage() event in any collider that it hits to determine if that object needs to be destroyed and notify its controller or just have physics applied to it. Physics enemies will be destroyed when they hit the kill-box below the arena and then notify their controllers. 
 
 ![Script Interactions](/docs/ScriptInteractionsDiagram.svg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Title:TimerController
-Game Start->Very Easy: Shoot Target 
-Very Easy->Easy: 0s to 60s
-Easy->Normal: 60s to 120s
-Normal->Hard: 120s to 300s
-Hard->Very Hard: 300s to 600s 
-
-Title:Game Phase Flow
-Game Start->Rotating Enemies Phase: Move enemies up into arena
-Rotating Enemies Phase->Physics Enemies Phase: Defeat All Rotating Enemies
-Physics Enemies Phase->Rotating Enemies Phase: Defeat all Physics Enemies
-Note right of Rotating Enemies Phase: Random Enemies spawn constantly
-Note right of Physics Enemies Phase: Boss enemies spawn at the end of each difficulty period
-
-Title:Script Interactions
-Arrow Collision->RotatingEnemiesController: OnTakeDamage
-RotatingEnemiesController->GameStateController: Enemies Cleared
-GameStateController->RotatingEnemiesController: Respawn Enemies after Physics Phase
-Arrow Collision->PhysicsEnemiesController: Physics Interactions
-PhysicsEnemiesController->GameStateController: Enemies Cleared
-GameStateController->PhysicsEnemiesController: Respawn Enemies after Rotation Phase
-GameStateController->TimerController: Difficulty Determines Color
-TimerController->GameStateController: Determines Difficulty
-GameStateController->BossEnemiesController: Spawn at timed intervals
-GameStateController->RandomEnemiesController: Spawn randomly based on player position

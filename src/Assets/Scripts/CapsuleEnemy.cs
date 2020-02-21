@@ -8,6 +8,13 @@ public class CapsuleEnemy : Enemy
     public bool PhysicsOnHit = false;
     public float respawnTime = 3f;
 
+    public void TakeDamageFromEvent()
+    {
+        Destroy(this.gameObject);
+
+        RotatingEnemyController.Instance?.OnEnemyDeath();
+    }
+    /*
     // called when the capsule collider is hit by an arrow with enough force
     public void TakeDamageFromEvent()
     {
@@ -34,4 +41,5 @@ public class CapsuleEnemy : Enemy
 
         this.gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
+    */
 }

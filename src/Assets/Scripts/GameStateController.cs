@@ -4,7 +4,7 @@ using UnityEngine;
 using Utility;
 using Valve.VR.InteractionSystem;
 
-public enum currentDifficulty
+public enum Difficulty
 {
     veryEasy,
     easy,
@@ -19,6 +19,9 @@ public class GameStateController : Singleton<GameStateController>
     public Hand LeftHand;
     public GameObject bowStand;
     public GameObject endpoint;
+
+    [SerializeField]
+    private Difficulty currentDifficulty;
 
     // Start is called before the first frame update
     void Start()

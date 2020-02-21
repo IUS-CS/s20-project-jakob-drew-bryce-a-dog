@@ -25,7 +25,7 @@ public class GunDamage : MonoBehaviour
         // shoot a ray from the camera straigth forward and see if it hits any objects with colliders
         if (Physics.Raycast(FPSCam.transform.position, FPSCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             CapsuleEnemy enemy = hit.transform.GetComponent<CapsuleEnemy>();
             BowStandEnemy bowStand = hit.transform.GetComponent<BowStandEnemy>();

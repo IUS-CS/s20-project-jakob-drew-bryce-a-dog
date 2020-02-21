@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 public class TargetEnemy : Enemy
 {
@@ -20,6 +22,13 @@ public class TargetEnemy : Enemy
 
     public void TakeDamageFromEvent()
     {
-        rotatingEnemyController.StartRotations();
+        GameStateController.Instance?.StartGame();
+
+        // scale this object down on hit, and when it's 0,0,0 turn it off
+        StartCoroutine(BasicAnimator.AnimateScale(this.gameObject.transform.parent, this.gameObject.transform.parent.localScale, Vector3.zero, 3f, new Action(() =>
+        {
+            this.gameObject.SetActive(false);
+        })));
+        
     }
 }

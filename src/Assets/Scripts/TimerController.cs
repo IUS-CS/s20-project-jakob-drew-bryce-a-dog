@@ -68,12 +68,11 @@ public class TimerController : Singleton<TimerController>
                 TimerLabels[i].text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, fraction);
             }
 
-            // green up to 20s, yellow up to 30s, red after
-            if (seconds < easyTime)
+            if (time < easyTime)
             {
                 TimerLabels[i].color = Color.cyan;
             }
-            else if (seconds >= easyTime && time < normalTime)
+            else if (time >= easyTime && time < normalTime)
             {
                 TimerLabels[i].color = Color.green;
             }

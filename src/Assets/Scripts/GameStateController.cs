@@ -19,6 +19,7 @@ public class GameStateController : Singleton<GameStateController>
     public Hand LeftHand;
     public GameObject bowStand;
     public GameObject endpoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +52,6 @@ public class GameStateController : Singleton<GameStateController>
 
     public void OnPhysicsEnemiesCleared()
     {
-
+        RotatingEnemyController.Instance?.Invoke("SpawnEnemies", 2f);
     }
 }

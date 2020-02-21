@@ -18,6 +18,8 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
         //StartRotations();
     }
 
+
+
     public void MoveToStartPos()
     {
         for (int i = 0; i < RotatingEnemies.Length; i++)
@@ -65,6 +67,17 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
         EnemyStopPoints[i] = temp;
     }
 
+    void SpawnEnemies()
+    {
+        for (int i = 0; i < RotatingEnemies.Length; i++)
+        {
+            RotatingEnemies[i].gameObject.SetActive(true);
+        }
+        EnemiesAlive = RotatingEnemies.Length;
+
+        StartRotations();
+    }
+
     public void OnEnemyDeath()
     {
         EnemiesAlive--;
@@ -72,6 +85,7 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
         if (EnemiesAlive < 1)
         {
             GameStateController.Instance?.OnRotatingEnemiesCleared();
+            CancelRotations();
         }
     }
 }

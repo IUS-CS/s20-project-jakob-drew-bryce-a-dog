@@ -10,7 +10,13 @@ public class CapsuleEnemy : Enemy
 
     public void TakeDamageFromEvent()
     {
-        Destroy(this.gameObject);
+        Invoke("KillEnemy", .5f);
+    }
+
+    private void KillEnemy()
+    {
+        //Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
 
         RotatingEnemyController.Instance?.OnEnemyDeath();
     }

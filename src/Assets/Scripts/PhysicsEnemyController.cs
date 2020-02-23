@@ -6,7 +6,7 @@ using Utility;
 public class PhysicsEnemyController : Singleton<PhysicsEnemyController>
 {
     public GameObject PhysicsEnemyPrefab;
-    public GameObject[] PhysicsEnemies;
+    //public GameObject[] PhysicsEnemies;
     public Transform[] SpawnPoints;
     public int EnemiesToSpawn = 4;
     public int EnemiesAlive;
@@ -36,5 +36,13 @@ public class PhysicsEnemyController : Singleton<PhysicsEnemyController>
         {
             GameStateController.Instance?.OnPhysicsEnemiesCleared();
         }
+    }
+}
+
+public class PhysicsEnemy
+{
+    public int test()
+    {
+        return 2;
     }
 }

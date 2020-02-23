@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     /// <summary>
     /// Even with rigid body constraints, we're getting some drift on the droplet after repeat collisions - apply this as a bandaid for now...

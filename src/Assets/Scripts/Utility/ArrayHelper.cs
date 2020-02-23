@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     public class ArrayHelper
     {

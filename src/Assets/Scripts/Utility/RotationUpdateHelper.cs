@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     public class RotationUpdateHelper : MonoBehaviour
     {

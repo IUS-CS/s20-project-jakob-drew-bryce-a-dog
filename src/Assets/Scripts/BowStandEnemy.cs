@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BowStandEnemy : Enemy
 {
-    public GameStateController GameStateController;
-
     public void TakeDamageFromEvent()
     {
-        GameStateController.OnBowPickup();
+        GameStateController.Instance?.OnBowPickup();
     }
 }

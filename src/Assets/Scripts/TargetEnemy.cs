@@ -6,29 +6,13 @@ using Utility;
 
 public class TargetEnemy : Enemy
 {
-    public RotatingEnemyController rotatingEnemyController;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TakeDamageFromEvent()
     {
-        GameStateController.Instance?.StartGame();
-
-        // scale this object down on hit, and when it's 0,0,0 turn it off
-        StartCoroutine(BasicAnimator.AnimateScale(this.gameObject.transform.parent, this.gameObject.transform.parent.localScale, Vector3.zero, 3f, new Action(() =>
+        // scale this object down on hit, and when it's 0,0,0 start the game then turn it off
+        StartCoroutine(BasicAnimator.AnimateScale(this.gameObject.transform.parent, this.gameObject.transform.parent.localScale, Vector3.zero, 2f, new Action(() =>
         {
+            GameStateController.Instance?.StartGame();
             this.gameObject.SetActive(false);
         })));
-        
     }
 }

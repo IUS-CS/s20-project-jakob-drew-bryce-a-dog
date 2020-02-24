@@ -25,33 +25,51 @@ namespace Tests
         public void TestSuiteSimplePasses()
         {
             // Use the Assert class to test conditions
-            
+
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
+        public IEnumerator test_rotating_enemies_death_on_hit()
+        {
+            GameObject enemyGO = new GameObject("CapsuleEnemy");
+            CapsuleEnemy enemy = enemyGO.AddComponent<CapsuleEnemy>();
+            enemy.TakeDamageFromEvent();
+
+            yield return new WaitForSeconds(.51f);
+
+            Assert.IsFalse(enemyGO.activeInHierarchy);
+        }
+
+        [UnityTest]
         public IEnumerator test_rotating_enemies_cleared()
         {
-            GameObject GameController = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefab/GameFlowControllers"));
-            GameStateController StateController = GameController.GetComponent<GameStateController>();
-            RotatingEnemyController RotatingController = GameController.GetComponent<RotatingEnemyController>();
+            GameObject controllerGO = new GameObject("RotatingEnemyController");
+            RotatingEnemyController controller = controllerGO.AddComponent<RotatingEnemyController>();
 
+            GameObject enemyGO1 = new GameObject("CapsuleEnemy");
+            CapsuleEnemy enemy1 = enemyGO1.AddComponent<CapsuleEnemy>();
+            GameObject enemyGO2 = new GameObject("CapsuleEnemy");
+            CapsuleEnemy enemy2 = enemyGO2.AddComponent<CapsuleEnemy>();
+            GameObject enemyGO3 = new GameObject("CapsuleEnemy");
+            CapsuleEnemy enemy3 = enemyGO3.AddComponent<CapsuleEnemy>();
+            GameObject enemyGO4 = new GameObject("CapsuleEnemy");
+            CapsuleEnemy enemy4 = enemyGO4.AddComponent<CapsuleEnemy>();
+
+            enemy1.TakeDamageFromEvent();
             yield return null;
+            enemy2.TakeDamageFromEvent();
             yield return null;
-
-            RotatingController.SpawnEnemies();
-
-            for (int i = 0; i < RotatingController.EnemiesAlive; i++)
-            {
-                RotatingController.OnEnemyDeath();
-            }
-
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
+            enemy3.TakeDamageFromEvent();
             yield return null;
+            enemy4.TakeDamageFromEvent();
 
-            Assert.IsTrue(StateController.RotatingEnemiesAwaitingRespawn);
+            yield return new WaitForSeconds(.51f);
+
+            Assert.AreEqual(0, controller.EnemiesAlive);
         }
+
+        
     }
 }

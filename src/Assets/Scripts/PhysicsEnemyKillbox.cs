@@ -5,7 +5,6 @@ using Utility;
 
 public class PhysicsEnemyKillbox : MonoBehaviour
 {
-    // a collider 
     private void OnTriggerEnter(Collider collider)
     {
         // if anything with a collider hits this box, destroy it from the scene to save memory

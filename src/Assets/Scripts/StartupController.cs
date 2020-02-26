@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
 using UnityEngine.XR;
-using Valve.VR;
+using Utility;
+//using Valve.VR;
 //drew
-public class StartupController : MonoBehaviour
+public class StartupController : Singleton<StartupController>
 {
     public bool VRMode;
 
     public GameObject[] VRComponents;
     public GameObject[] FPSComponents;
 
-    private void Awake()
+    new private void Awake()
     {
         if (VRMode)
         {

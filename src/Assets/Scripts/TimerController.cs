@@ -1,7 +1,6 @@
-﻿using Samtec.OpticsVRTrainer.Utility;
+﻿using Utility;
 using TMPro;
 using UnityEngine;
-using Utility;
 
 public class TimerController : Singleton<TimerController>
 {

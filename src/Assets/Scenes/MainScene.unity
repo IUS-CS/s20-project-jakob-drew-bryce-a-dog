@@ -312,7 +312,7 @@ Transform:
   m_Children:
   - {fileID: 174257100}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &111034599
 MonoBehaviour:
@@ -328,7 +328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   myRigidBody: {fileID: 0}
-  GameStateController: {fileID: 641489332}
 --- !u!4 &174257100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5038973309053266858, guid: 3c68a10da5566144ea41d427607ef928,
@@ -1370,8 +1369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VRMode: 0
   VRComponents:
-  - {fileID: 1736900112}
   - {fileID: 275261974}
+  - {fileID: 1736900112}
   - {fileID: 910360413}
   FPSComponents:
   - {fileID: 370209681}
@@ -1518,7 +1517,7 @@ Transform:
   m_LocalScale: {x: 0.55930454, y: 0.4761863, z: 0.55930454}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &633496074
 GameObject:
@@ -1751,11 +1750,11 @@ MonoBehaviour:
   - {fileID: 837832576}
   - {fileID: 1187112576}
   - {fileID: 669716370}
-  easyTime: 2
-  normalTime: 4
-  hardTime: 6
-  veryHardTime: 8
-  orange: {r: 1, g: 0.4886257, b: 0, a: 1}
+  easyTime: 10
+  normalTime: 20
+  hardTime: 30
+  veryHardTime: 40
+  orange: {r: 1, g: 0.48748046, b: 0, a: 1}
   FractionsOn: 1
 --- !u!114 &641489332
 MonoBehaviour:
@@ -1773,6 +1772,9 @@ MonoBehaviour:
   LeftHand: {fileID: 1791685836}
   bowStand: {fileID: 111034594}
   endpoint: {fileID: 590106864}
+  currentDifficulty: 0
+  RotatingEnemiesAwaitingRespawn: 1
+  PhysicsEnemiesAwaitingRespawn: 0
 --- !u!114 &641489333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1787,11 +1789,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhysicsEnemyPrefab: {fileID: 1992144855546413498, guid: 19094191d33501c488f812a610cdb9f6,
     type: 3}
-  PhysicsEnemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   SpawnPoints:
   - {fileID: 4249062455336961854}
   - {fileID: 1799924603}
@@ -1997,7 +1994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2223,7 +2220,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe6847d63339b354f864815a92aca487, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2613,7 +2610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe6847d63339b354f864815a92aca487, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3732,7 +3729,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe6847d63339b354f864815a92aca487, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4080,7 +4077,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe6847d63339b354f864815a92aca487, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4458,7 +4455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   myRigidBody: {fileID: 0}
-  rotatingEnemyController: {fileID: 641489330}
 --- !u!114 &2601590230733553637
 MonoBehaviour:
   m_ObjectHideFlags: 0

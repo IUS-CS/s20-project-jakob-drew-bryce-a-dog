@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Samtec.OpticsVRTrainer.Utility
+namespace Utility
 {
     /// <summary>
     /// This class contains math related helper functions.

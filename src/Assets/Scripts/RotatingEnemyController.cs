@@ -67,7 +67,7 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
         EnemyStopPoints[i] = temp;
     }
 
-    void SpawnEnemies()
+    public void SpawnEnemies()
     {
         for (int i = 0; i < RotatingEnemies.Length; i++)
         {

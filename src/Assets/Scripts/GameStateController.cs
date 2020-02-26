@@ -4,7 +4,7 @@ using UnityEngine;
 using Utility;
 using Valve.VR.InteractionSystem;
 
-public enum currentDifficulty
+public enum Difficulty
 {
     veryEasy,
     easy,
@@ -20,23 +20,20 @@ public class GameStateController : Singleton<GameStateController>
     public GameObject bowStand;
     public GameObject endpoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Difficulty currentDifficulty;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [HideInInspector]
+    public bool RotatingEnemiesAwaitingRespawn = true;
+    [HideInInspector]
+    public bool PhysicsEnemiesAwaitingRespawn;
+
 
     public void OnBowPickup()
     {
         BowItemPackage.SetActive(false);
         LeftHand.HideGrabHint();
-        StartCoroutine(BasicAnimator.AnimateWorldPosition(bowStand.transform, bowStand.transform.position, endpoint.transform.position, 10f));
+        StartCoroutine(BasicAnimator.AnimateWorldPosition(bowStand.transform, bowStand.transform.position, endpoint.transform.position, 8f));
     }
 
     public void StartGame()
@@ -47,11 +44,17 @@ public class GameStateController : Singleton<GameStateController>
 
     public void OnRotatingEnemiesCleared()
     {
+        RotatingEnemiesAwaitingRespawn = true;
+        PhysicsEnemiesAwaitingRespawn = false;
+
         PhysicsEnemyController.Instance?.Invoke("SpawnEnemies", 2f);
     }
 
     public void OnPhysicsEnemiesCleared()
     {
+        PhysicsEnemiesAwaitingRespawn = true;
+        RotatingEnemiesAwaitingRespawn = false;
+
         RotatingEnemyController.Instance?.Invoke("SpawnEnemies", 2f);
     }
 }

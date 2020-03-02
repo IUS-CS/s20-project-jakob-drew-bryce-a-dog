@@ -35,7 +35,7 @@ public class StartupController : Singleton<StartupController>
 
             for (int i = 0; i < VRComponents.Length; i++)
             {
-                VRComponents[i].SetActive(false);
+                if (VRComponents[i] != null) VRComponents[i].SetActive(false);
             }
             for (int i = 0; i < FPSComponents.Length; i++)
             {

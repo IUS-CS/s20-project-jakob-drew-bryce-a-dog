@@ -5,15 +5,17 @@ using Valve.VR.InteractionSystem;
 
 public class CapsuleEnemy : Enemy
 {
-    public GameObject explosionPrefab;
+    
 
     public float respawnTime = 3f;
 
     private AudioSource audio;
+    private GameObject explosionPrefab;
 
     private void Awake()
     {
         audio = this.gameObject.GetComponent<AudioSource>();
+        explosionPrefab = (GameObject)Resources.Load("Prefab/BigExplosion", typeof(GameObject));
     }
 
     public void TakeDamageFromEvent()
@@ -26,15 +28,17 @@ public class CapsuleEnemy : Enemy
     {
         RotatingEnemyController.Instance?.OnEnemyDeath();
 
-        StartCoroutine(Explode());
+        Coroutine explodeCoroutine = StartCoroutine(Explode());
 
         // don't destroy these from the scene, we may as well just turn them back on later
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
-        GameObject arrow = gameObject.GetComponentInChildren<Arrow>().gameObject;
-        Destroy(arrow);
-
+        if (StartupController.Instance.VRMode)
+        {
+            GameObject arrow = gameObject.GetComponentInChildren<Arrow>().gameObject;
+            Destroy(arrow);
+        }
         
     }
 
@@ -45,7 +49,7 @@ public class CapsuleEnemy : Enemy
         GameObject explosion = Instantiate(explosionPrefab);
         explosion.transform.position = this.gameObject.transform.position;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.98f);
 
         Destroy(explosion);
 

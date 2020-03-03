@@ -5,8 +5,6 @@ using Valve.VR.InteractionSystem;
 
 public class CapsuleEnemy : Enemy
 {
-    
-
     public float respawnTime = 3f;
 
     private AudioSource audio;
@@ -15,6 +13,7 @@ public class CapsuleEnemy : Enemy
     private void Awake()
     {
         audio = this.gameObject.GetComponent<AudioSource>();
+        // load the explosion prefab at runtime instead of linking in inspector, a little slower but accomodates unit tests
         explosionPrefab = (GameObject)Resources.Load("Prefab/BigExplosion", typeof(GameObject));
     }
 

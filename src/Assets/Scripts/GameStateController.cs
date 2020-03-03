@@ -39,6 +39,7 @@ public class GameStateController : Singleton<GameStateController>
     public void StartGame()
     {
         TimerController.Instance?.StartTimer();
+        MusicController.Instance?.StartMusic();
         RotatingEnemyController.Instance?.MoveToStartPos();
     }
 

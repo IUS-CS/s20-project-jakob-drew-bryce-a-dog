@@ -20,7 +20,7 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
 
 
 
-    public void MoveToStartPos()
+    public void InitialSpawn()
     {
         for (int i = 0; i < RotatingEnemies.Length; i++)
         {

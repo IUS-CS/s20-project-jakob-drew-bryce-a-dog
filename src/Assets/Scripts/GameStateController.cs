@@ -40,7 +40,7 @@ public class GameStateController : Singleton<GameStateController>
     {
         TimerController.Instance?.StartTimer();
         MusicController.Instance?.StartMusic();
-        RotatingEnemyController.Instance?.MoveToStartPos();
+        RotatingEnemyController.Instance?.InitialSpawn();
     }
 
     public void OnRotatingEnemiesCleared()

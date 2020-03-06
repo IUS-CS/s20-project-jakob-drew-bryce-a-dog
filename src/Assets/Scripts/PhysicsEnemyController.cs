@@ -38,11 +38,3 @@ public class PhysicsEnemyController : Singleton<PhysicsEnemyController>
         }
     }
 }
-
-public class PhysicsEnemy
-{
-    public int test()
-    {
-        return 2;
-    }
-}

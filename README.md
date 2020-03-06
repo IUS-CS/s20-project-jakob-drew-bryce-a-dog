@@ -25,7 +25,7 @@ Branches should be checked out against the `master` branch and worked on individ
 
 ## Authors and Acknowledgement
 
-* Bryce Winnie
+* Bryce Winnecke
 * Drew Yellina
 * Jakob Markland
 

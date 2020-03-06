@@ -6,15 +6,24 @@ using Valve.VR.InteractionSystem;
 public class CapsuleEnemy : Enemy
 {
     public float respawnTime = 3f;
-
-    private AudioSource audio;
+    
     private GameObject explosionPrefab;
 
     private void Awake()
     {
-        audio = this.gameObject.GetComponent<AudioSource>();
         // load the explosion prefab at runtime instead of linking in inspector, a little slower but accomodates unit tests
         explosionPrefab = (GameObject)Resources.Load("Prefab/BigExplosion", typeof(GameObject));
+
+        mesh = this.gameObject.GetComponent<MeshRenderer>();
+        audio = this.gameObject.GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        // set material's alpha to 0 at start (completely transparent)
+        Color invis = mesh.material.color;
+        invis.a = 0f;
+        mesh.material.color = invis;
     }
 
     public void TakeDamageFromEvent()
@@ -38,7 +47,6 @@ public class CapsuleEnemy : Enemy
             GameObject arrow = gameObject.GetComponentInChildren<Arrow>().gameObject;
             Destroy(arrow);
         }
-        
     }
 
     private IEnumerator Explode()

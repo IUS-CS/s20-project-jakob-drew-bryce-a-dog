@@ -8,6 +8,19 @@ public class BoxEnemy : Enemy
     public bool PhysicsOnHit = false;
     public float respawnTime = 3f;
 
+    private void OnEnable()
+    {
+        FadeIn();
+
+        Invoke("ReEnableCollider", 0.01f);
+    }
+
+    // turn collider back on immediately so it doesn't fall through floor
+    private void ReEnableCollider()
+    {
+        this.gameObject.GetComponent<BoxCollider>().enabled = true;
+    }
+
     // called when the capsule collider is hit by an arrow with enough force
     public void TakeDamageFromEvent()
     {

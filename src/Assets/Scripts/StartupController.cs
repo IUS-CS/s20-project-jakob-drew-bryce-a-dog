@@ -28,6 +28,7 @@ public class StartupController : Singleton<StartupController>
             {
                 FPSComponents[i].SetActive(false);
             }
+            Destroy(FPSComponents[0]);
         }
         else
         {

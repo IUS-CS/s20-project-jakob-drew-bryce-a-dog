@@ -15,7 +15,7 @@ public enum EnemyState
 public class Enemy : MonoBehaviour
 {
     public EnemyState currentState;
-    public Rigidbody myRigidBody;
+    public Rigidbody myRigidbody;
 
     protected MeshRenderer mesh;
     protected AudioSource audio;
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         // some enemies will have rigidbodies for physics, others will just die in place on arrow hit
         if (GetComponent<Rigidbody>() != null)
         {
-            myRigidBody = GetComponent<Rigidbody>();
+            myRigidbody = GetComponent<Rigidbody>();
         }
     }
 
@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator FadeInCo()
     {
+        // collider should only be on when material is fully opaque, except on physics enemies
         ToggleCollider(false);
 
         Color targetColor = mesh.material.color;

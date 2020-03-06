@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  myRigidBody: {fileID: 0}
+  myRigidbody: {fileID: 0}
 --- !u!4 &174257100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5038973309053266858, guid: 3c68a10da5566144ea41d427607ef928,
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   range: 100
-  impactForce: 300
+  impactForce: 500
   FPSCam: {fileID: 370143665}
 --- !u!23 &187489563
 MeshRenderer:
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 376203889}
   m_Layer: 0
   m_Name: FPSPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4ac9b571381924a8e9a410492eb9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRMode: 1
+  VRMode: 0
   VRComponents:
   - {fileID: 275261974}
   - {fileID: 1736900112}
@@ -2343,6 +2343,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2533,7 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  myRigidBody: {fileID: 0}
+  myRigidbody: {fileID: 0}
   respawnTime: 3
 --- !u!136 &726019710
 CapsuleCollider:
@@ -3018,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  myRigidBody: {fileID: 0}
+  myRigidbody: {fileID: 0}
   respawnTime: 3
 --- !u!136 &902321548
 CapsuleCollider:
@@ -4374,7 +4378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  myRigidBody: {fileID: 0}
+  myRigidbody: {fileID: 0}
   respawnTime: 3
 --- !u!4 &1706277320
 Transform:
@@ -4851,7 +4855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  myRigidBody: {fileID: 0}
+  myRigidbody: {fileID: 0}
   respawnTime: 3
 --- !u!4 &1937587746
 Transform:
@@ -5389,7 +5393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  myRigidBody: {fileID: 0}
+  myRigidbody: {fileID: 0}
 --- !u!114 &2601590230733553637
 MonoBehaviour:
   m_ObjectHideFlags: 0

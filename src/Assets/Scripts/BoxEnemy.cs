@@ -39,7 +39,7 @@ public class BoxEnemy : Enemy
             //Move the enemy toward player
             myRigidbody.velocity = new Vector3(velocity.x, myRigidbody.velocity.y, velocity.z);
             //Face the enemy toward the player
-            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            //transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         }
     }
 

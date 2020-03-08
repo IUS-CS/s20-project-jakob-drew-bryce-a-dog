@@ -27,13 +27,19 @@ public class GunDamage : MonoBehaviour
         {
             //Debug.Log(hit.transform.name);
 
-            CapsuleEnemy enemy = hit.transform.GetComponent<CapsuleEnemy>();
+            CapsuleEnemy Cenemy = hit.transform.GetComponent<CapsuleEnemy>();
+            BoxEnemy Benemy = hit.transform.GetComponent<BoxEnemy>();
             BowStandEnemy bowStand = hit.transform.GetComponent<BowStandEnemy>();
             TargetEnemy target = hit.transform.GetComponent<TargetEnemy>();
             
-            if (enemy != null)
+            if (Cenemy != null)
             {
-                enemy.TakeDamageFromEvent();
+                Cenemy.TakeDamageFromEvent();
+            }
+
+            if (Benemy != null)
+            {
+                Benemy.TakeDamageFromEvent();
             }
 
             if (bowStand != null)

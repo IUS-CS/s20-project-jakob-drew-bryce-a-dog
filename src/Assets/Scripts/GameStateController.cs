@@ -39,7 +39,8 @@ public class GameStateController : Singleton<GameStateController>
     public void StartGame()
     {
         TimerController.Instance?.StartTimer();
-        RotatingEnemyController.Instance?.MoveToStartPos();
+        MusicController.Instance?.StartMusic();
+        RotatingEnemyController.Instance?.InitialSpawn();
     }
 
     public void OnRotatingEnemiesCleared()

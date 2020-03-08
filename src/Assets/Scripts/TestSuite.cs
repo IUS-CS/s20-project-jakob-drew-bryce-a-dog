@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
 namespace Tests
@@ -11,7 +12,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-
+            LogAssert.ignoreFailingMessages = true;
         }
 
         [TearDown]
@@ -33,11 +34,17 @@ namespace Tests
         [UnityTest]
         public IEnumerator test_rotating_enemies_death_on_hit()
         {
-            GameObject enemyGO = new GameObject("CapsuleEnemy");
-            CapsuleEnemy enemy = enemyGO.AddComponent<CapsuleEnemy>();
-            enemy.TakeDamageFromEvent();
+            // prevent exceptions on components we don't care about from stopping the test
+            LogAssert.ignoreFailingMessages = true;
 
-            yield return new WaitForSeconds(.51f);
+            GameObject enemyGO = new GameObject("CapsuleEnemy");
+            enemyGO.AddComponent<MeshRenderer>();
+            enemyGO.AddComponent<CapsuleCollider>();
+            enemyGO.AddComponent<AudioSource>();
+            CapsuleEnemy enemy = enemyGO.AddComponent<CapsuleEnemy>();
+
+            enemy.TakeDamageFromEvent();
+            yield return new WaitForSeconds(10f);
 
             Assert.IsFalse(enemyGO.activeInHierarchy);
         }
@@ -45,6 +52,8 @@ namespace Tests
         [UnityTest]
         public IEnumerator test_rotating_enemies_cleared()
         {
+            LogAssert.ignoreFailingMessages = true;
+
             GameObject controllerGO = new GameObject("RotatingEnemyController");
             RotatingEnemyController controller = controllerGO.AddComponent<RotatingEnemyController>();
 
@@ -65,7 +74,7 @@ namespace Tests
             yield return null;
             enemy4.TakeDamageFromEvent();
 
-            yield return new WaitForSeconds(.51f);
+            yield return new WaitForSeconds(3f);
 
             Assert.AreEqual(0, controller.EnemiesAlive);
         }

@@ -20,11 +20,12 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
 
 
 
-    public void MoveToStartPos()
+    public void InitialSpawn()
     {
         for (int i = 0; i < RotatingEnemies.Length; i++)
         {
-            StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[i].position, 2F));
+            //StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[i].position, 2F));
+            RotatingEnemies[i].GetComponent<CapsuleEnemy>().FadeIn();
         }
         Invoke("StartRotations", 4f);
     }
@@ -32,6 +33,13 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
     public void StartRotations()
     {
         CancelRotations();
+
+        StartCoroutine(DelayStartRotations(1.5f));
+    }
+
+    private IEnumerator DelayStartRotations(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         InvokeRepeating("RotateEnemies", 0f, AnimationTime + PauseTime);
     }
@@ -72,6 +80,7 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
         for (int i = 0; i < RotatingEnemies.Length; i++)
         {
             RotatingEnemies[i].gameObject.SetActive(true);
+            RotatingEnemies[i].GetComponent<CapsuleEnemy>().FadeIn();
         }
         EnemiesAlive = RotatingEnemies.Length;
 

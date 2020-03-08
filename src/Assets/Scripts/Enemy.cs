@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour
     public EnemyState currentState;
     public Rigidbody myRigidbody;
 
-    protected SkinnedMeshRenderer mesh;
+    protected MeshRenderer mesh;
     protected AudioSource audio;
 
     private void Awake()
     {
-        mesh = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        mesh = this.gameObject.GetComponent<MeshRenderer>();
         audio = this.gameObject.GetComponent<AudioSource>();
     }
 

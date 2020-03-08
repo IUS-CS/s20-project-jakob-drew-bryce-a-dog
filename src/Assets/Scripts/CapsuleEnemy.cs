@@ -14,7 +14,7 @@ public class CapsuleEnemy : Enemy
         // load the explosion prefab at runtime instead of linking in inspector, a little slower but accomodates unit tests
         explosionPrefab = (GameObject)Resources.Load("Prefab/BigExplosion", typeof(GameObject));
 
-        mesh = this.gameObject.GetComponent<MeshRenderer>();
+        mesh = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
         audio = this.gameObject.GetComponent<AudioSource>();
     }
 
@@ -39,7 +39,7 @@ public class CapsuleEnemy : Enemy
         Coroutine explodeCoroutine = StartCoroutine(Explode());
 
         // don't destroy these from the scene, we may as well just turn them back on later
-        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
         if (StartupController.Instance.VRMode)

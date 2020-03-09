@@ -37,11 +37,11 @@ namespace Tests
             // prevent exceptions on components we don't care about from stopping the test
             LogAssert.ignoreFailingMessages = true;
 
-            GameObject enemyGO = new GameObject("CapsuleEnemy");
+            GameObject enemyGO = new GameObject("PatrollingChickenEnemy");
             enemyGO.AddComponent<MeshRenderer>();
             enemyGO.AddComponent<CapsuleCollider>();
             enemyGO.AddComponent<AudioSource>();
-            CapsuleEnemy enemy = enemyGO.AddComponent<CapsuleEnemy>();
+            PatrollingChickenEnemy enemy = enemyGO.AddComponent<PatrollingChickenEnemy>();
 
             enemy.TakeDamageFromEvent();
             yield return new WaitForSeconds(10f);
@@ -57,14 +57,14 @@ namespace Tests
             GameObject controllerGO = new GameObject("RotatingEnemyController");
             RotatingEnemyController controller = controllerGO.AddComponent<RotatingEnemyController>();
 
-            GameObject enemyGO1 = new GameObject("CapsuleEnemy");
-            CapsuleEnemy enemy1 = enemyGO1.AddComponent<CapsuleEnemy>();
-            GameObject enemyGO2 = new GameObject("CapsuleEnemy");
-            CapsuleEnemy enemy2 = enemyGO2.AddComponent<CapsuleEnemy>();
-            GameObject enemyGO3 = new GameObject("CapsuleEnemy");
-            CapsuleEnemy enemy3 = enemyGO3.AddComponent<CapsuleEnemy>();
-            GameObject enemyGO4 = new GameObject("CapsuleEnemy");
-            CapsuleEnemy enemy4 = enemyGO4.AddComponent<CapsuleEnemy>();
+            GameObject enemyGO1 = new GameObject("PatrollingChickenEnemy");
+            PatrollingChickenEnemy enemy1 = enemyGO1.AddComponent<PatrollingChickenEnemy>();
+            GameObject enemyGO2 = new GameObject("PatrollingChickenEnemy");
+            PatrollingChickenEnemy enemy2 = enemyGO2.AddComponent<PatrollingChickenEnemy>();
+            GameObject enemyGO3 = new GameObject("PatrollingChickenEnemy");
+            PatrollingChickenEnemy enemy3 = enemyGO3.AddComponent<PatrollingChickenEnemy>();
+            GameObject enemyGO4 = new GameObject("PatrollingChickenEnemy");
+            PatrollingChickenEnemy enemy4 = enemyGO4.AddComponent<PatrollingChickenEnemy>();
 
             enemy1.TakeDamageFromEvent();
             yield return null;

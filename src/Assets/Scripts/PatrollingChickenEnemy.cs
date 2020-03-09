@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-public class CapsuleEnemy : Enemy
+public class PatrollingChickenEnemy : Enemy
 {
     public float respawnTime = 3f;
     
@@ -54,7 +54,7 @@ public class CapsuleEnemy : Enemy
         audio.Play(0);
 
         GameObject explosion = Instantiate(explosionPrefab);
-        explosion.transform.position = this.gameObject.transform.position;
+        explosion.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.75f, this.gameObject.transform.position.z);
 
         yield return new WaitForSeconds(1.98f);
 

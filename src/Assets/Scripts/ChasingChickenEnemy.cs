@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxEnemy : Enemy
+public class ChasingChickenEnemy : Enemy
 {
     public Transform player;
 

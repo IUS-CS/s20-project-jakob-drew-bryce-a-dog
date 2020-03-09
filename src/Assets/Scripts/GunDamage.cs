@@ -27,8 +27,8 @@ public class GunDamage : MonoBehaviour
         {
             //Debug.Log(hit.transform.name);
 
-            CapsuleEnemy Cenemy = hit.transform.GetComponent<CapsuleEnemy>();
-            BoxEnemy Benemy = hit.transform.GetComponent<BoxEnemy>();
+            PatrollingChickenEnemy Cenemy = hit.transform.GetComponent<PatrollingChickenEnemy>();
+            ChasingChickenEnemy Benemy = hit.transform.GetComponent<ChasingChickenEnemy>();
             BowStandEnemy bowStand = hit.transform.GetComponent<BowStandEnemy>();
             TargetEnemy target = hit.transform.GetComponent<TargetEnemy>();
             

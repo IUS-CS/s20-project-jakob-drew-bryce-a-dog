@@ -69,22 +69,32 @@ public class TimerController : Singleton<TimerController>
 
             if (time < easyTime)
             {
+                GameStateController.Instance?.SetDifficulty(Difficulty.veryEasy);
+
                 TimerLabels[i].color = Color.cyan;
             }
             else if (time >= easyTime && time < normalTime)
             {
+                GameStateController.Instance?.SetDifficulty(Difficulty.easy);
+
                 TimerLabels[i].color = Color.green;
             }
             else if (time >= normalTime && time < hardTime)
             {
+                GameStateController.Instance?.SetDifficulty(Difficulty.normal);
+
                 TimerLabels[i].color = Color.yellow;
             }
             else if (time >= hardTime && time < veryHardTime)
             {
+                GameStateController.Instance?.SetDifficulty(Difficulty.hard);
+
                 TimerLabels[i].color = orange;
             }
             else if (time >= veryHardTime)
             {
+                GameStateController.Instance?.SetDifficulty(Difficulty.veryHard);
+
                 TimerLabels[i].color = Color.red;
             }
 

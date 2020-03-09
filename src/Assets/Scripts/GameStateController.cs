@@ -61,4 +61,14 @@ public class GameStateController : Singleton<GameStateController>
 
         RotatingEnemyController.Instance?.Invoke("SpawnEnemies", 2f);
     }
+
+    public void SetDifficulty(Difficulty targetDifficulty)
+    {
+        currentDifficulty = targetDifficulty;
+    }
+
+    public Difficulty GetCurrentDifficulty()
+    {
+        return currentDifficulty;
+    }
 }

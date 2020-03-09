@@ -52,7 +52,11 @@ MonoBehaviour:
   myRigidbody: {fileID: 0}
   player: {fileID: 0}
   respawnTime: 3
-  moveSpeed: 1
+  movementSpeedVeryEasy: 1
+  movementSpeedEasy: 1.25
+  movementSpeedNormal: 1.5
+  movementSpeedHard: 1.75
+  movementSpeedVeryHard: 2
   stunTime: 2
 --- !u!114 &1992144855546413501
 MonoBehaviour:

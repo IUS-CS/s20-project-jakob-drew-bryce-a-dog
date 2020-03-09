@@ -13,6 +13,8 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
 
     private Transform[] enemyDestination;
 
+    private bool firstRotation = true;
+
     void Start()
     {
         //StartRotations();
@@ -27,7 +29,7 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
             //StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[i].position, 2F));
             RotatingEnemies[i].GetComponent<CapsuleEnemy>().FadeIn();
         }
-        Invoke("StartRotations", 4f);
+        Invoke("StartRotations", 3f);
     }
 
     public void StartRotations()
@@ -56,15 +58,35 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
         {
             if (RotatingEnemies[i] != null)
             {
+                //RotatingEnemies[i].LookAt(EnemyStopPoints[i + 1]);
+                if (!firstRotation)
+                {
+                    RotatingEnemies[i].Rotate(Vector3.up, -90, Space.World);
+                }
+                
                 // move this enemy to the next position
-                StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[i + 1].position, AnimationTime));
+                StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[i + 1].position, AnimationTime, new System.Action(() =>
+                {
+                    //RotatingEnemies[i].Rotate(Vector3.up, 90, Space.World);
+                    //StartCoroutine(BasicAnimator.AnimateLocalRotation(RotatingEnemies[i], RotatingEnemies[i].localRotation, RotatingEnemies[i].localRotation.eulerAngles.x))
+                })));
             }
         }
         if (RotatingEnemies[i] != null)
         {
+            //RotatingEnemies[i].LookAt(EnemyStopPoints[0]);
+            if (!firstRotation)
+            {
+                RotatingEnemies[i].Rotate(Vector3.up, -90, Space.World);
+            }
+
             // if this is the last enemy in array, move it to the first position
-            StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[0].position, AnimationTime));
+            StartCoroutine(BasicAnimator.AnimateWorldPosition(RotatingEnemies[i], RotatingEnemies[i].position, EnemyStopPoints[0].position, AnimationTime, new System.Action(() =>
+            {
+                //RotatingEnemies[i].Rotate(Vector3.up, 90, Space.World);
+            })));
         }
+        firstRotation = false;
 
         // rotate the end points for next pass
         Transform temp = EnemyStopPoints[0];

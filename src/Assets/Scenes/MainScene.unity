@@ -2077,8 +2077,16 @@ MonoBehaviour:
   - {fileID: 1921646114}
   - {fileID: 470965460}
   - {fileID: 1108159969}
-  AnimationTime: 5
-  PauseTime: 3
+  AnimationTimeVeryEasy: 5
+  AnimationTimeEasy: 4.5
+  AnimationTimeNormal: 4
+  AnimationTimeHard: 3.5
+  AnimationTimeVeryHard: 3
+  PauseTimeVeryEasy: 3
+  PauseTimeEasy: 2.75
+  PauseTimeNormal: 2.5
+  PauseTimeHard: 2.25
+  PauseTimeVeryHard: 2
   EnemiesAlive: 4
 --- !u!114 &641489331
 MonoBehaviour:

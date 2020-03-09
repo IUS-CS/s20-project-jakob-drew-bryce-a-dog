@@ -74,6 +74,7 @@ public class RotatingEnemyController : Singleton<RotatingEnemyController>
             {
                 if (!firstRotation)
                 {
+                    // turn to face next destination (can make this a smooth animation later)
                     RotatingEnemies[i].Rotate(Vector3.up, -90, Space.World);
                 }
                 

@@ -7,6 +7,7 @@ TagManager:
   - projectile
   - PhysicsEnemyBox
   - CapsuleEnemy
+  - Enemy
   layers:
   - Default
   - TransparentFX

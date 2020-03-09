@@ -11,7 +11,7 @@ public class PhysicsEnemyKillbox : MonoBehaviour
         Destroy(collider.gameObject);
 
         // if it's a physics enemy or boss, let their controllers know about it
-        if (collider.gameObject.CompareTag("PhysicsEnemyBox"))
+        if (collider.gameObject.CompareTag("Enemy"))
         {
             PhysicsEnemyController.Instance?.OnEnemyDeath();
         }

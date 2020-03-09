@@ -1,6 +1,6 @@
-# INSERT GAME NAME HERE
+# <Insert game name here>
 
-INSERT GAME NAME HERE is an endless survival Virtual Reality game. When the game is loaded up you start in an environment where you are faced by a bow stand. Your first objective is to teleport to the bow stand and pick up the bow. After the bow is picked up, you are able to shoot the target that is in front of you. Shooting this target will start the spawning of various enemies, as well as a timer that counts up. Use the bow that you picked up to neutralize the enemies in game. Survive as long as you can!
+<Insert game name here> is an endless survival Virtual Reality game. When the game is loaded up you start in an environment where you are faced by a pedestal holding a bow. Your first objective is to teleport to the bow stand and pick up the bow. After the bow is picked up, you are able to shoot a target in front of you. Shooting this target will start the spawning of various enemies around you, as well as a timer that counts up. Use the bow that you picked up to neutralize the enemies in the game. Survive as long as you can!
 
 ## Prerequisites
 
@@ -14,11 +14,11 @@ INSERT GAME NAME HERE is an endless survival Virtual Reality game. When the game
 
 ### Minimum System Hardware Requirements
 
-OS: Windows 7 or 10 (recommended)
-GPU: Nvidia GeForce GTX 970 or AMD Radeon R9 290 equivalent
-CPU: Intel i5-4590 or AMD FX 8350 equivalent
-RAM: 4 GB or more
-Video Output: HDMI 1.4, DisplayPort 1.2 or newer (depending on HMD)
+* OS: Windows 7 or 10 (recommended)
+* GPU: Nvidia GeForce GTX 970 or AMD Radeon R9 290 equivalent
+* CPU: Intel i5-4590 or AMD FX 8350 equivalent
+* RAM: 4 GB or more
+* Video Output: HDMI 1.4, DisplayPort 1.2 or newer (depending on HMD)
 
 ## Getting Started
 

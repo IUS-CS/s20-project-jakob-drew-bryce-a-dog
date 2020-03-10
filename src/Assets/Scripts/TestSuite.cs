@@ -84,17 +84,70 @@ namespace Tests
         {
             LogAssert.ignoreFailingMessages = true;
 
-            //GameObject physicsEnemy = new GameObject("enemy");
-            GameObject physicsEnemy = (GameObject)Resources.Load("Prefab/PhysicsChickenPrefab", typeof(GameObject));
+            GameObject physicsEnemy = new GameObject("enemy");
+            physicsEnemy.AddComponent<ChasingChickenEnemy>();
+            physicsEnemy.AddComponent<Rigidbody>();
+            physicsEnemy.AddComponent<BoxCollider>();
+            physicsEnemy.tag = "Enemy";
 
             GameObject killbox = new GameObject("killbox");
-            killbox = (GameObject)Resources.Load("Prefab/EnemyKillBox", typeof(GameObject));
+            killbox.AddComponent<PhysicsEnemyKillbox>();
+            killbox.AddComponent<BoxCollider>();
             // place killbox below enemy
             killbox.transform.position = new Vector3(0f, -10f, 0f);
 
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(3f);
 
-            Assert.IsNull(physicsEnemy);
+            //Assert.IsNull(physicsEnemy); // doesn't work - destroyed gameobjects are pseudo-null? wtf
+            Assert.IsTrue(physicsEnemy == null);
+        }
+
+        [UnityTest]
+        public IEnumerator test_physics_enemies_cleared()
+        {
+            LogAssert.ignoreFailingMessages = true;
+
+            GameObject controllerGO = new GameObject("PhysicsEnemyController");
+            PhysicsEnemyController controller = controllerGO.AddComponent<PhysicsEnemyController>();
+
+            GameObject physicsEnemy1 = new GameObject("enemy");
+            physicsEnemy1.transform.position = new Vector3(2f, 0, 0); // move these around so they aren't hitting each other
+            physicsEnemy1.AddComponent<ChasingChickenEnemy>();
+            physicsEnemy1.AddComponent<Rigidbody>();
+            physicsEnemy1.AddComponent<BoxCollider>();
+            physicsEnemy1.tag = "Enemy";
+            GameObject physicsEnemy2 = new GameObject("enemy");
+            physicsEnemy2.transform.position = new Vector3(-2f, 0, 0);
+            physicsEnemy2.AddComponent<ChasingChickenEnemy>();
+            physicsEnemy2.AddComponent<Rigidbody>();
+            physicsEnemy2.AddComponent<BoxCollider>();
+            physicsEnemy2.tag = "Enemy";
+            GameObject physicsEnemy3 = new GameObject("enemy");
+            physicsEnemy3.transform.position = new Vector3(0, 2f, 0);
+            physicsEnemy3.AddComponent<ChasingChickenEnemy>();
+            physicsEnemy3.AddComponent<Rigidbody>();
+            physicsEnemy3.AddComponent<BoxCollider>();
+            physicsEnemy3.tag = "Enemy";
+            GameObject physicsEnemy4 = new GameObject("enemy");
+            physicsEnemy4.transform.position = new Vector3(0, -2f, 0);
+            physicsEnemy4.AddComponent<ChasingChickenEnemy>();
+            physicsEnemy4.AddComponent<Rigidbody>();
+            physicsEnemy4.AddComponent<BoxCollider>();
+            physicsEnemy4.tag = "Enemy";
+
+            controller.EnemiesAlive = 4;
+
+            GameObject killbox = new GameObject("killbox");
+            killbox.AddComponent<PhysicsEnemyKillbox>();
+            killbox.AddComponent<BoxCollider>();
+            // place killbox below enemies
+            killbox.transform.position = new Vector3(0f, -10f, 0f);
+            // scale it up a bit
+            killbox.transform.localScale = killbox.transform.localScale * 5;
+
+            yield return new WaitForSeconds(3f);
+
+            Assert.AreEqual(0, controller.EnemiesAlive);
         }
     }
 }

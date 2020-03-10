@@ -9,9 +9,7 @@ public class PlayerDeath : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-
-            SceneManager.LoadScene(currentScene.name);
+            GameStateController.Instance?.OnPlayerDeath();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utility;
 using Valve.VR.InteractionSystem;
 
@@ -60,6 +61,13 @@ public class GameStateController : Singleton<GameStateController>
         RotatingEnemiesAwaitingRespawn = false;
 
         RotatingEnemyController.Instance?.Invoke("SpawnEnemies", 2f);
+    }
+
+    public void OnPlayerDeath()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(currentScene.name);
     }
 
     public void SetDifficulty(Difficulty targetDifficulty)

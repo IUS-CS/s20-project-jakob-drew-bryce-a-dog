@@ -33,14 +33,24 @@ namespace Valve.VR.InteractionSystem
 			transform.localPosition = head.localPosition - 0.5f * distanceFromFloor * Vector3.up;
 		}
 
-		private void OnCollisionEnter(Collision collision)
-		{
-			if (collision.gameObject.CompareTag("Enemy"))
-			{
-				Scene currentScene = SceneManager.GetActiveScene();
+		//private void OnCollisionEnter(Collision collision)
+		//{
+		//	if (collision.gameObject.CompareTag("Enemy"))
+		//	{
+		//		Scene currentScene = SceneManager.GetActiveScene();
 
-				SceneManager.LoadScene(currentScene.name);
-			}
-		}
-	}
+		//		SceneManager.LoadScene(currentScene.name);
+		//	}
+		//}
+
+  //      private void OnTriggerEnter(Collider other)
+  //      {
+  //          if (other.gameObject.CompareTag("Enemy"))
+  //          {
+  //              Scene currentScene = SceneManager.GetActiveScene();
+
+  //              SceneManager.LoadScene(currentScene.name);
+  //          }
+  //      }
+    }
 }

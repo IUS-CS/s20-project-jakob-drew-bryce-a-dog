@@ -28,7 +28,8 @@ public class PatrollingChickenEnemy : Enemy
 
     public void TakeDamageFromEvent()
     {
-        // delay turning them off so you can see the arrow stick, could add an explosion animation here
+        CancelInvoke();
+
         Invoke("KillEnemy", .5f);
     }
 

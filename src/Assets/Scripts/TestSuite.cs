@@ -44,11 +44,11 @@ namespace Tests
             PatrollingChickenEnemy enemy = enemyGO.AddComponent<PatrollingChickenEnemy>();
 
             enemy.TakeDamageFromEvent();
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(4f);
 
             Assert.IsFalse(enemyGO.activeInHierarchy);
         }
-
+        
         [UnityTest]
         public IEnumerator test_rotating_enemies_cleared()
         {
@@ -79,6 +79,22 @@ namespace Tests
             Assert.AreEqual(0, controller.EnemiesAlive);
         }
 
-        
+        [UnityTest]
+        public IEnumerator test_physics_enemies_death_on_killbox_enter()
+        {
+            LogAssert.ignoreFailingMessages = true;
+
+            //GameObject physicsEnemy = new GameObject("enemy");
+            GameObject physicsEnemy = (GameObject)Resources.Load("Prefab/PhysicsChickenPrefab", typeof(GameObject));
+
+            GameObject killbox = new GameObject("killbox");
+            killbox = (GameObject)Resources.Load("Prefab/EnemyKillBox", typeof(GameObject));
+            // place killbox below enemy
+            killbox.transform.position = new Vector3(0f, -10f, 0f);
+
+            yield return new WaitForSeconds(10f);
+
+            Assert.IsNull(physicsEnemy);
+        }
     }
 }

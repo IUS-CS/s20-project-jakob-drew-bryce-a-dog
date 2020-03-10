@@ -13,6 +13,7 @@ public class PhysicsEnemyKillbox : MonoBehaviour
         // if it's a physics enemy or boss, let their controllers know about it
         if (collider.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("enemy hit killbox");
             PhysicsEnemyController.Instance?.OnEnemyDeath();
         }
     }

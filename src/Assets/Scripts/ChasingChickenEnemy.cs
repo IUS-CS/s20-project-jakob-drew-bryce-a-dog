@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxEnemy : Enemy
+public class ChasingChickenEnemy : Enemy
 {
     public Transform player;
 
     public float respawnTime = 3f;
     // speed which enemy chases player, controlled by difficulty level in GameStateController
-    public float moveSpeed = 1.0f;
+    public float movementSpeedVeryEasy = 1.0f;
+    public float movementSpeedEasy = 1.1f;
+    public float movementSpeedNormal = 1.2f;
+    public float movementSpeedHard = 1.3f;
+    public float movementSpeedVeryHard = 1.4f;
     public float stunTime = 2.0f;
 
-    bool shouldFollow = false;
+    private float moveSpeed;
+    private bool shouldFollow = false;
 
     private void OnEnable()
     {
@@ -21,6 +26,8 @@ public class BoxEnemy : Enemy
         FadeIn();
 
         Invoke("ReEnableCollider", 0.01f);
+
+        StartCoroutine(UpdateChaseSpeed());
     }
 
     private void Update()
@@ -39,7 +46,7 @@ public class BoxEnemy : Enemy
             //Move the enemy toward player
             myRigidbody.velocity = new Vector3(velocity.x, myRigidbody.velocity.y, velocity.z);
             //Face the enemy toward the player
-            //transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            //transform.LookAt(new Vector3(player.transform.position.x, transform.position.y + 90, player.transform.position.z));
         }
     }
 
@@ -65,4 +72,41 @@ public class BoxEnemy : Enemy
         shouldFollow = true;
     }
 
+    // update the enemy's chase speed every half second while it's active
+    private IEnumerator UpdateChaseSpeed()
+    {
+        while (true)
+        {
+            SetChaseSpeed();
+
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    private void SetChaseSpeed()
+    {
+        switch (GameStateController.Instance?.GetCurrentDifficulty())
+        {
+            case Difficulty.veryEasy:
+                moveSpeed = movementSpeedVeryEasy;
+
+                break;
+            case Difficulty.easy:
+                moveSpeed = movementSpeedEasy;
+
+                break;
+            case Difficulty.normal:
+                moveSpeed = movementSpeedNormal;
+
+                break;
+            case Difficulty.hard:
+                moveSpeed = movementSpeedHard;
+
+                break;
+            case Difficulty.veryHard:
+                moveSpeed = movementSpeedVeryHard;
+
+                break;
+        }
+    }
 }

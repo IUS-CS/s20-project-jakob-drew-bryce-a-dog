@@ -11,14 +11,23 @@ public class PhysicsEnemyKillbox : MonoBehaviour
         Destroy(collider.gameObject);
 
         // if it's a physics enemy or boss, let their controllers know about it
-        if (collider.gameObject.CompareTag("PhysicsEnemyBox"))
+        if (collider.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("enemy hit killbox");
             PhysicsEnemyController.Instance?.OnEnemyDeath();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        // if anything with a collider hits this box, destroy it from the scene to save memory
+        Destroy(collision.gameObject);
+
+        // if it's a physics enemy or boss, let their controllers know about it
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("enemy hit killbox");
+            PhysicsEnemyController.Instance?.OnEnemyDeath();
+        }
     }
 }

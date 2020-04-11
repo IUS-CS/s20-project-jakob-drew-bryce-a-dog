@@ -62,6 +62,9 @@ public class ChasingChickenEnemy : Enemy
     // called when the capsule collider is hit by an arrow with enough force
     public void TakeDamageFromEvent()
     {
+        float distance = Vector3.Distance(this.transform.position, player.transform.position);
+        ScoreController.Instance?.AddScoreFromArrowHit(distance);
+
         // "stun" the enemy when it's hit by the arrow so physics can happen for a bit
         shouldFollow = false;
         Invoke("FollowPlayer", stunTime);

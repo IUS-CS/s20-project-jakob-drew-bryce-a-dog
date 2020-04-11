@@ -22,6 +22,7 @@ public class GunDamage : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
+        float distance;
         // shoot a ray from the camera straigth forward and see if it hits any objects with colliders
         if (Physics.Raycast(FPSCam.transform.position, FPSCam.transform.forward, out hit, range))
         {
@@ -31,15 +32,21 @@ public class GunDamage : MonoBehaviour
             ChasingChickenEnemy Benemy = hit.transform.GetComponent<ChasingChickenEnemy>();
             BowStandEnemy bowStand = hit.transform.GetComponent<BowStandEnemy>();
             TargetEnemy target = hit.transform.GetComponent<TargetEnemy>();
-            
+
+            distance = Vector3.Distance(FPSCam.transform.position, hit.transform.position);
+
             if (Cenemy != null)
             {
                 Cenemy.TakeDamageFromEvent();
+                
+                //ScoreController.Instance?.AddScoreFromArrowHit(distance);
             }
 
             if (Benemy != null)
             {
                 Benemy.TakeDamageFromEvent();
+
+                //ScoreController.Instance?.AddScoreFromArrowHit(distance);
             }
 
             if (bowStand != null)

@@ -37,6 +37,12 @@ namespace Tests
             // prevent exceptions on components we don't care about from stopping the test
             LogAssert.ignoreFailingMessages = true;
 
+            GameObject ScoreControllerGO = new GameObject("ScoreController");
+            ScoreController ScoreController = ScoreControllerGO.AddComponent<ScoreController>();
+
+            GameObject player = new GameObject("Player");
+            player.tag = "Player";
+
             GameObject enemyGO = new GameObject("PatrollingChickenEnemy");
             enemyGO.AddComponent<MeshRenderer>();
             enemyGO.AddComponent<CapsuleCollider>();
@@ -54,8 +60,14 @@ namespace Tests
         {
             LogAssert.ignoreFailingMessages = true;
 
+            GameObject ScoreControllerGO = new GameObject("ScoreController");
+            ScoreController ScoreController = ScoreControllerGO.AddComponent<ScoreController>();
+
             GameObject controllerGO = new GameObject("RotatingEnemyController");
             RotatingEnemyController controller = controllerGO.AddComponent<RotatingEnemyController>();
+
+            GameObject player = new GameObject("Player");
+            player.tag = "Player";
 
             GameObject enemyGO1 = new GameObject("PatrollingChickenEnemy");
             PatrollingChickenEnemy enemy1 = enemyGO1.AddComponent<PatrollingChickenEnemy>();
@@ -84,6 +96,12 @@ namespace Tests
         {
             LogAssert.ignoreFailingMessages = true;
 
+            GameObject ScoreControllerGO = new GameObject("ScoreController");
+            ScoreController ScoreController = ScoreControllerGO.AddComponent<ScoreController>();
+
+            GameObject player = new GameObject("Player");
+            player.tag = "Player";
+
             GameObject physicsEnemy = new GameObject("enemy");
             physicsEnemy.AddComponent<ChasingChickenEnemy>();
             physicsEnemy.AddComponent<Rigidbody>();
@@ -107,8 +125,14 @@ namespace Tests
         {
             LogAssert.ignoreFailingMessages = true;
 
+            GameObject ScoreControllerGO = new GameObject("ScoreController");
+            ScoreController ScoreController = ScoreControllerGO.AddComponent<ScoreController>();
+
             GameObject controllerGO = new GameObject("PhysicsEnemyController");
             PhysicsEnemyController controller = controllerGO.AddComponent<PhysicsEnemyController>();
+
+            GameObject player = new GameObject("Player");
+            player.tag = "Player";
 
             GameObject physicsEnemy1 = new GameObject("enemy");
             physicsEnemy1.transform.position = new Vector3(2f, 0, 0); // move these around so they aren't hitting each other
@@ -148,6 +172,30 @@ namespace Tests
             yield return new WaitForSeconds(3f);
 
             Assert.AreEqual(0, controller.EnemiesAlive);
+        }
+
+        [UnityTest]
+        public IEnumerator test_score_added_from_close_shot()
+        {
+            LogAssert.ignoreFailingMessages = true;
+
+            GameObject ScoreControllerGO = new GameObject("ScoreController");
+            ScoreController ScoreController = ScoreControllerGO.AddComponent<ScoreController>();
+
+            GameObject enemyGO = new GameObject("PatrollingChickenEnemy");
+            enemyGO.AddComponent<MeshRenderer>();
+            enemyGO.AddComponent<CapsuleCollider>();
+            enemyGO.AddComponent<AudioSource>();
+            PatrollingChickenEnemy enemy = enemyGO.AddComponent<PatrollingChickenEnemy>();
+
+            GameObject player = new GameObject("Player");
+            player.tag = "Player";
+
+            enemy.TakeDamageFromEvent();
+
+            yield return null;
+
+            Assert.AreEqual(25, ScoreController.Instance?.currentScore);
         }
     }
 }

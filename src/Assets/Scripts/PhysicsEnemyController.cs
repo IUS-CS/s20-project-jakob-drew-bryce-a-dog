@@ -30,12 +30,13 @@ public class PhysicsEnemyController : Singleton<PhysicsEnemyController>
 
     public void OnEnemyDeath()
     {
-        ScoreController.Instance?.AddScoreFromKillbox();
         EnemiesAlive--;
         
         if (EnemiesAlive < 1)
         {
             GameStateController.Instance?.OnPhysicsEnemiesCleared();
         }
+
+        ScoreController.Instance?.AddScoreFromKillbox();
     }
 }

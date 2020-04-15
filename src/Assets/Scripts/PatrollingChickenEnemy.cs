@@ -36,10 +36,10 @@ public class PatrollingChickenEnemy : Enemy
     {
         CancelInvoke();
 
+        Invoke("KillEnemy", .5f);
+
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
         ScoreController.Instance?.AddScoreFromArrowHit(distance);
-
-        Invoke("KillEnemy", .5f);
     }
 
     private void KillEnemy()

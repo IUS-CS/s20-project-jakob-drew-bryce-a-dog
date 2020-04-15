@@ -6,7 +6,8 @@ using Valve.VR.InteractionSystem;
 public class PatrollingChickenEnemy : Enemy
 {
     public float respawnTime = 3f;
-    
+
+    public Transform player;
     private GameObject explosionPrefab;
 
     private void Awake()
@@ -26,11 +27,19 @@ public class PatrollingChickenEnemy : Enemy
         mesh.material.color = invis;
     }
 
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     public void TakeDamageFromEvent()
     {
         CancelInvoke();
 
         Invoke("KillEnemy", .5f);
+
+        float distance = Vector3.Distance(this.transform.position, player.transform.position);
+        ScoreController.Instance?.AddScoreFromArrowHit(distance, this.transform.position);
     }
 
     private void KillEnemy()

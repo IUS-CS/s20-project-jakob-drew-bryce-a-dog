@@ -36,5 +36,7 @@ public class PhysicsEnemyController : Singleton<PhysicsEnemyController>
         {
             GameStateController.Instance?.OnPhysicsEnemiesCleared();
         }
+
+        ScoreController.Instance?.AddScoreFromKillbox();
     }
 }

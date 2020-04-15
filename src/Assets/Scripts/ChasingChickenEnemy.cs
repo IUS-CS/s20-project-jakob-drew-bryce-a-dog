@@ -63,7 +63,7 @@ public class ChasingChickenEnemy : Enemy
     public void TakeDamageFromEvent()
     {
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
-        ScoreController.Instance?.AddScoreFromArrowHit(distance);
+        ScoreController.Instance?.AddScoreFromArrowHit(distance, this.transform.position);
 
         // "stun" the enemy when it's hit by the arrow so physics can happen for a bit
         shouldFollow = false;

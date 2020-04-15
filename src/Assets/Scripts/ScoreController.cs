@@ -17,12 +17,19 @@ public class ScoreController : Singleton<ScoreController>
     public float midDistance;
     public float longDistance;
 
+    private GameObject scorePopupPrefab;
 
     private void Start()
     {
+
         currentScore = 0;
 
         UpdateScoreBoard();
+    }
+
+    private void Awake()
+    {
+        scorePopupPrefab = (GameObject)Resources.Load("Prefab/ScorePopup", typeof(GameObject));
     }
 
     private void UpdateScoreBoard()
@@ -33,22 +40,41 @@ public class ScoreController : Singleton<ScoreController>
         }
     }
 
-    public void AddScoreFromArrowHit(float distanceFromPlayer)
+    public void AddScoreFromArrowHit(float distanceFromPlayer, Vector3 position)
     {
+        int scoreAdded = 0;
+
         if (distanceFromPlayer <= midDistance)
         {
-            currentScore += scorePerArrowHit * scoreMultShortRange;
+            scoreAdded = scorePerArrowHit * scoreMultShortRange;
         }
         else if (distanceFromPlayer > midDistance && distanceFromPlayer <= longDistance)
         {
-            currentScore += scorePerArrowHit * scoreMultMidRange;
+            scoreAdded = scorePerArrowHit * scoreMultMidRange;
         }
         else if (distanceFromPlayer > longDistance)
         {
-            currentScore += scorePerArrowHit * scoreMultLongRange;
+            scoreAdded = scorePerArrowHit * scoreMultLongRange;
         }
 
+        currentScore += scoreAdded;
+
+        StartCoroutine(ScorePopup(scoreAdded, position));
+
         UpdateScoreBoard();
+    }
+
+    // give feedback for score added above enemy when it's hit by arrow
+    private IEnumerator ScorePopup(int score, Vector3 position)
+    {
+        GameObject scorePopup = Instantiate(scorePopupPrefab);
+
+        scorePopup.transform.position = new Vector3(position.x, position.y + 4f, position.z);
+        scorePopup.GetComponent<TextMeshPro>().text = "+" + score.ToString();
+
+        yield return new WaitForSeconds(2f);
+
+        Destroy(scorePopup);
     }
     
     public void AddScoreFromKillbox()

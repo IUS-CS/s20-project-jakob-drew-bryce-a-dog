@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.c346project.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\brycew\\School Project\\s20-project-jakob-drew-bryce-a-dog\\src\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\GaMe_\\Unity\\C346 Project\\src\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "C346 Project [Testing]"

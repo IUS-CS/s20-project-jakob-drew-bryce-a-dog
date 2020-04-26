@@ -1,6 +1,6 @@
-# [Insert game name here]
+# Sky Assault
 
-[Insert game name here] is an endless survival Virtual Reality game. When the game is loaded up you start in an environment where you are faced by a pedestal holding a bow. Your first objective is to teleport to the bow stand and pick up the bow. After the bow is picked up, you are able to shoot a target in front of you. Shooting this target will start the spawning of various enemies around you, as well as a timer that counts up. Use the bow that you picked up to neutralize the enemies in the game. Survive as long as you can!
+Sky Assault is an endless survival Virtual Reality game. When the game is loaded up you start in an environment where you are faced by a pedestal holding a bow. Your first objective is to teleport to the bow stand and pick up the bow. After the bow is picked up, you are able to shoot a target in front of you. Shooting this target will start the spawning of various enemies around you, as well as a timer that counts up. Use the bow that you picked up to neutralize the enemies in the game. Survive as long as you can!
 
 ## Prerequisites
 

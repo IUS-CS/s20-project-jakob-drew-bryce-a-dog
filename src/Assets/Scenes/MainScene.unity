@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4ac9b571381924a8e9a410492eb9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRMode: 0
+  VRMode: 1
   VRComponents:
   - {fileID: 275261974}
   - {fileID: 1736900112}
@@ -1953,7 +1953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &516875745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,10 +2431,10 @@ MonoBehaviour:
   - {fileID: 837832576}
   - {fileID: 1187112576}
   - {fileID: 669716370}
-  easyTime: 10
-  normalTime: 20
-  hardTime: 30
-  veryHardTime: 40
+  easyTime: 60
+  normalTime: 120
+  hardTime: 300
+  veryHardTime: 600
   orange: {r: 1, g: 0.48748046, b: 0, a: 1}
   FractionsOn: 1
 --- !u!114 &641489332
@@ -2700,7 +2700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString

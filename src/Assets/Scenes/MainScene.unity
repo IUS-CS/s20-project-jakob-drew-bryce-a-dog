@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4ac9b571381924a8e9a410492eb9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRMode: 1
+  VRMode: 0
   VRComponents:
   - {fileID: 275261974}
   - {fileID: 1736900112}
@@ -1953,7 +1953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &516875745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,7 +2700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
